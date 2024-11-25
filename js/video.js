@@ -1,4 +1,5 @@
 window.addEventListener("load", function () {
+	// Select and log all elements
 	const video = document.querySelector("#player1");
 	console.log("Video element found:", video);
 
@@ -35,42 +36,40 @@ window.addEventListener("load", function () {
 	// Initialize video settings
 	video.autoplay = false;
 	video.loop = false;
-	video.volume = volumeSlider.value / 100;  // Set initial volume based on slider
-	volumeDisplay.textContent = volumeSlider.value + "%";  // Display initial volume
+	volumeDisplay.textContent = video.volume * 100 + "%";
 	console.log("Video initialized with autoplay:", video.autoplay, "loop:", video.loop);
 
 	// Play button functionality
-	playButton.onclick = function () {
+	playButton.addEventListener("click", function () {
 		console.log("Play button clicked");
 		video.play();
-		// Update volume display before playing
-		volumeDisplay.textContent = Math.round(volumeSlider.value) + "%";
+		volumeDisplay.textContent = Math.round(video.volume * 100) + "%";
 		console.log("Video playing at volume:", video.volume);
-	};
+	});
 
 	// Pause button functionality
-	pauseButton.onclick = function () {
+	pauseButton.addEventListener("click", function () {
 		console.log("Pause button clicked");
 		video.pause();
 		console.log("Video paused");
-	};
+	});
 
 	// Slow down functionality
-	slowerButton.onclick = function () {
+	slowerButton.addEventListener("click", function () {
 		console.log("Slow down button clicked");
 		video.playbackRate *= 0.9;
 		console.log("New speed:", video.playbackRate.toFixed(5));
-	};
+	});
 
 	// Speed up functionality
-	fasterButton.onclick = function () {
+	fasterButton.addEventListener("click", function () {
 		console.log("Speed up button clicked");
 		video.playbackRate /= 0.9;
 		console.log("New speed:", video.playbackRate.toFixed(5));
-	};
+	});
 
 	// Skip ahead functionality
-	skipButton.onclick = function () {
+	skipButton.addEventListener("click", function () {
 		console.log("Skip button clicked");
 		if (video.currentTime + 10 <= video.duration) {
 			video.currentTime += 10;
@@ -78,10 +77,10 @@ window.addEventListener("load", function () {
 			video.currentTime = 0;
 		}
 		console.log("Current location:", video.currentTime.toFixed(2));
-	};
+	});
 
 	// Mute functionality
-	muteButton.onclick = function () {
+	muteButton.addEventListener("click", function () {
 		console.log("Mute button clicked");
 		if (video.muted) {
 			video.muted = false;
@@ -92,26 +91,26 @@ window.addEventListener("load", function () {
 			muteButton.textContent = "Unmute";
 			console.log("Video muted");
 		}
-	};
+	});
 
 	// Volume slider functionality
-	volumeSlider.oninput = function () {
+	volumeSlider.addEventListener("input", function () {
 		console.log("Volume slider adjusted");
 		video.volume = this.value / 100;
-		volumeDisplay.textContent = this.value + "%";
+		volumeDisplay.textContent = Math.round(video.volume * 100) + "%";
 		console.log("New volume:", video.volume.toFixed(2));
-	};
+	});
 
 	// Video styling functionality
-	vintageButton.onclick = function () {
+	vintageButton.addEventListener("click", function () {
 		console.log("Vintage button clicked");
 		video.classList.add("oldSchool");
 		console.log("Old school class added");
-	};
+	});
 
-	origButton.onclick = function () {
+	origButton.addEventListener("click", function () {
 		console.log("Original button clicked");
 		video.classList.remove("oldSchool");
 		console.log("Old school class removed");
-	};
+	});
 });
