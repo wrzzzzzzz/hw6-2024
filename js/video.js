@@ -36,8 +36,9 @@ window.addEventListener("load", function () {
 	// Initialize video settings
 	video.autoplay = false;
 	video.loop = false;
-	volumeDisplay.textContent = video.volume * 100 + "%";
-	console.log("Video initialized with autoplay:", video.autoplay, "loop:", video.loop);
+	// volumeDisplay.textContent = video.volume * 100 + "%";
+	console.log("Video initialized with autoplay:", video.autoplay)
+	console.log("Video initialized with loop:", video.loop)
 
 	// Play button functionality
 	playButton.addEventListener("click", function () {
