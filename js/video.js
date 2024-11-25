@@ -43,7 +43,7 @@ window.addEventListener("load", function () {
 	playButton.addEventListener("click", function () {
 		console.log("Play button clicked");
 		video.play();
-		volumeDisplay.textContent = Math.round(video.volume * 100) + "%";
+		volumeDisplay.innerHTML = Math.round(video.volume * 100) + "%";
 		console.log("Video playing at volume:", video.volume);
 	});
 
