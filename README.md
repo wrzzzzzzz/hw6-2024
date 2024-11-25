@@ -1,1 +1,4 @@
-# hw6-2024
+# hw7-2022
+SI 539 HW6 - JavaScript basics with Video
+
+Author: Ruizhe Wang
